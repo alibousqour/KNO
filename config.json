@@ -1,0 +1,6 @@
+{
+  "GOOGLE_API_KEY": "YOUR_KEY_HERE",
+  "VISION_ENABLED": true,
+  "LOG_LEVEL": "INFO",
+  "FAILSAFE_CORNERS": true
+}

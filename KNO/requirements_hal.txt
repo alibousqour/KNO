@@ -1,0 +1,42 @@
+# =========================================================================
+# Hardware Abstraction Layer (HAL) - Requirements
+# =========================================================================
+# Python dependencies for KNO v6.0 HAL
+
+# Core dependencies (all platforms)
+psutil>=5.9.0              # System resources monitoring
+                           # CPU, memory, disk, processes, network
+
+# Cross-platform audio and network
+pyaudio>=0.2.13            # Audio device management
+                           # List input/output devices
+
+netifaces>=0.11.0          # Network interface information
+                           # (Linux, macOS, optional on Windows)
+
+# Platform-specific
+# Windows only:
+pywin32>=305               # Windows-specific features (WMI, registry)
+
+# Linux only:
+alsa-mixer>=1.4.0          # ALSA mixer for volume control (optional)
+
+# Optional hardware support
+GPUtil>=1.4.0              # NVIDIA GPU information (Linux, macOS)
+RPi.GPIO>=0.7.0            # Raspberry Pi GPIO (Raspberry Pi only)
+pigpio>=1.78               # Advanced GPIO for RPi (optional)
+
+# Development and testing
+pytest>=7.0.0              # Testing framework
+pytest-cov>=4.0.0          # Code coverage
+black>=23.0.0              # Code formatting
+flake8>=6.0.0              # Linting
+mypy>=1.0.0                # Type checking
+
+# Logging and monitoring
+python-dotenv>=0.21.0      # Environment variable management
+colorlog>=6.7.0            # Colored logging
+
+# Optional: Performance profiling
+memory-profiler>=0.61.0    # Memory profiling (optional)
+py-spy>=0.3.14             # CPU profiling (optional)

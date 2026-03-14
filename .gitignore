@@ -1,0 +1,15 @@
+.venv/
+.venv-1/
+backups/
+logs/
+eDEX-ui/
+edex-ui-2.2.8/
+platform-tools/
+whisper.cpp/
+openclaw/
+openclaw-main/
+KNO_OS/
+*.exe
+*.mmdb
+*.zip
+*.rar

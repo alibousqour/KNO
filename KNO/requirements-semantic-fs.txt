@@ -1,0 +1,40 @@
+# KNO Semantic File System v2.0 - Complete Dependencies
+# ========================================================
+# Install all packages to enable semantic file indexing and search
+#
+# CORE PACKAGES (Required)
+sentence-transformers>=2.2.0  # Embedding models - converts text to vectors
+chromadb>=0.3.21              # Vector database - primary backend (production)
+faiss-cpu>=1.7.2              # Vector database - alternative backend (lightweight)
+PyPDF2>=3.0.0                 # PDF text extraction support
+numpy>=1.21.0                 # Numerical computing (required by embedding models)
+
+# OPTIONAL PACKAGES (Performance optimization)
+# Uncomment if you have GPU support:
+# faiss-gpu>=1.7.2            # FAISS with GPU acceleration (faster)
+
+# For better ChromaDB performance:
+# hnswlib>=0.7.0              # Advanced similarity search
+
+# For development/testing:
+# pytest>=7.0.0               # Testing framework
+# pytest-asyncio>=0.21.0      # Async test support
+
+# INSTALLATION INSTRUCTIONS
+# ==========================
+#
+# Option 1: Install all at once
+#   pip install -r requirements-semantic-fs.txt
+#
+# Option 2: Install specific backend
+#   For ChromaDB only:
+#   pip install sentence-transformers chromadb PyPDF2 numpy
+#
+#   For FAISS only:
+#   pip install sentence-transformers faiss-cpu PyPDF2 numpy
+#
+# NOTES:
+# - On GPU systems, replace faiss-cpu with faiss-gpu for 10x speedup
+# - ChromaDB requires DuckDB (included with chromadb)
+# - Sentence-Transformers auto-downloads models on first use (~500MB)
+# - Windows users: Install Visual C++ Build Tools if compilation fails

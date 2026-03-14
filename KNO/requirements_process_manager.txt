@@ -1,0 +1,25 @@
+"""
+Requirements for Process & Task Management System
+
+All dependencies for KNO v6.0 Process Management module.
+"""
+
+# Core Dependencies (Included in Python)
+asyncio==3.11.0  # Built-in async framework
+subprocess==1.0  # Built-in process management
+threading==3.11.0  # Built-in threading
+logging==0.5.1.2  # Built-in logging
+dataclasses==0.6  # Built-in dataclasses
+enum==1.0  # Built-in enumerations
+
+# No additional pip requirements!
+# Process Manager uses only Python standard library.
+
+# Optional: For monitoring integration with HAL
+# psutil>=5.9.0  # Already required by HAL
+# (automatically available if HAL is installed)
+
+# Optional: For enhanced debugging
+# pytest>=7.0  # For testing
+# pytest-asyncio>=0.21.0  # Async test support
+# pytest-cov>=4.0.0  # Coverage reporting

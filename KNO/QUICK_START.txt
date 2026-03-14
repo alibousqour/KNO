@@ -1,0 +1,79 @@
+# Quick Start - Voice Assistant Agent
+
+## Before Running
+
+1. **Start Ollama** (required for chat responses):
+   ```bash
+   ollama serve
+   ```
+
+2. **Verify Whisper is installed** at:
+   - `A:\KNO\KNO\whisper.cpp\build\bin\whisper-cli.exe`
+   - `A:\KNO\KNO\models\ggml-base.en.bin`
+
+## Run the Agent
+
+```bash
+cd a:\KNO\KNO
+.\venv\Scripts\python.exe agent.py
+```
+
+## Using the Agent
+
+1. **Click the GUI window** to give it focus
+2. **Press ENTER** to start recording
+3. **Speak your command**, e.g., "What time is it?" or "Hello agent!"
+4. **Press ENTER again** to stop recording
+5. Wait for transcription (~3-10 seconds)
+6. Listen to Ollama's response
+
+## Errors & Fixes
+
+| Error | Fix |
+|-------|-----|
+| `whisper-cli.exe not found` | Place it in `A:\KNO\KNO\whisper.cpp\build\bin\` |
+| `ggml-base.en.bin not found` | Place it in `A:\KNO\KNO\models\` |
+| `Cannot connect to Ollama` | Run `ollama serve` in another terminal |
+| Microphone not detected | Check Windows Sound Settings |
+| Recording is silent | Speak louder, check mic connection |
+
+## Keyboard Shortcuts
+
+- **ENTER**: Start/Stop recording
+- **SPACE**: Interrupt Ollama response
+- **ESC**: Exit fullscreen
+- **Ctrl+C** (in terminal): Graceful shutdown
+
+## Status Messages (Console Output)
+
+Watch for these to verify each stage works:
+
+```
+[AUDIO] Using device 1: Microphone Array...     ← Microphone detected
+[AUDIO] PTT recording complete, XXX chunks      ← Recording done
+[TRANSCRIBE] Heard: 'your command here'         ← Transcription worked
+[OLLAMA] Sending query to gemma3:1b             ← Chat starting
+[PIPER SPEAKING] 'response text'                ← Agent speaking
+```
+
+## What Was Fixed Today
+
+✅ Absolute paths for Whisper.cpp (no more "file not found")  
+✅ File handle closing (audio file ready for Whisper)  
+✅ Ollama error recovery (agent continues if connection fails)  
+✅ Graceful KeyboardInterrupt handling (Ctrl+C doesn't break anything)  
+✅ Comprehensive error messages (tells you exactly what's wrong)  
+✅ 120-second transcription timeout (was 60, too short)  
+✅ Error recovery in main loop (one failure doesn't cascade)
+
+---
+
+## Tips
+
+- **First run is slow** because Whisper loads the model (2-3 minutes)
+- **Subsequent runs are faster** because model stays in memory
+- **Transcription takes 5-30 seconds** depending on audio length
+- **Ollama response takes 3-10 seconds** depending on prompt length
+- **Check console for [ERROR] tags** if something doesn't work
+
+Need help? See SETUP_AND_FIXES.md for detailed troubleshooting.

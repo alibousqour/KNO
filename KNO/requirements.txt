@@ -1,0 +1,16 @@
+sounddevice>=0.4.6
+numpy>=1.21.0
+scipy>=1.7.0
+openwakeword>=0.3.0
+onnxruntime>=1.14.0
+ollama>=0.1.0
+duckduckgo-search>=3.8.0
+Pillow>=9.0.0
+python-dotenv>=0.19.0
+opencv-python>=4.5.0
+customtkinter>=5.0.0
+
+# Added for KNO_V2 computer-use features
+pyautogui>=0.9.53  # May require Admin permissions on Windows (e.g., to control desktop)
+requests>=2.28.0
+google-generativeai>=0.1.0

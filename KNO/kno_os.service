@@ -1,0 +1,28 @@
+[Unit]
+Description=KNO AI-Native Operating System Service
+After=network.target sound.target multi-user.target
+
+[Service]
+# Environment Variables
+Environment=PYTHONPATH=/opt/KNO
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/kno_user/.Xauthority
+
+# Execution Details
+Type=simple
+User=kno_user
+WorkingDirectory=/opt/KNO
+ExecStart=/opt/KNO/venv/bin/python3 /opt/KNO/agent.py
+Restart=always
+RestartSec=10
+
+# Monitoring & Logs
+StandardOutput=append:/var/log/kno_os.log
+StandardError=append:/var/log/kno_os_error.log
+
+# Resource Limits
+CPUQuota=80%
+MemoryLimit=2G
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,37 @@
+{
+  "autonomy_level": "approval_required",
+  "permissions": {
+    "file_system": "ask",
+    "process_control": "ask",
+    "registry": "ask",
+    "command_execution": "ask",
+    "network_operations": "ask",
+    "adb_control": "ask",
+    "phone_notifications": "ask"
+  },
+  "antivirus": {
+    "enabled": false,
+    "real_time_protection": false,
+    "quarantine_path": "quarantine"
+  },
+  "media_handlers": {
+    "auto_install": false
+  },
+  "self_evolution": {
+    "enabled": false,
+    "auto_apply_patches": false,
+    "require_approval_for_code_patches": true
+  },
+  "audit_logging": {
+    "enabled": true,
+    "audit_file": "logs/audit.log",
+    "log_all_operations": true,
+    "log_denied_operations": true,
+    "retention_days": 90
+  },
+  "api_security": {
+    "store_keys_in_env": true,
+    "require_https": true,
+    "timeout_seconds": 30
+  }
+}

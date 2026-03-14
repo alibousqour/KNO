@@ -1,0 +1,36 @@
+{
+  "fix_history": [],
+  "errors_encountered": 83,
+  "error_log": [
+    {
+      "type": "wake_word_detection_error",
+      "message": "'BotGUI' object has no attribute 'detect_wake_word_or_ppt'",
+      "context": "",
+      "timestamp": "2026-02-16T15:38:11.257054",
+      "count": 79
+    },
+    {
+      "type": "no_response_generated",
+      "message": "Could not generate response for: \u0633\u0644\u0627\u0645",
+      "context": "text_processing",
+      "timestamp": "2026-02-16T15:36:59.016401",
+      "count": 1
+    },
+    {
+      "type": "no_response_generated",
+      "message": "Could not generate response for: \u0645\u0627 \u0627\u0633\u0645\u0643",
+      "context": "text_processing",
+      "timestamp": "2026-02-16T15:58:50.881529",
+      "count": 2
+    },
+    {
+      "type": "no_response_generated",
+      "message": "Could not generate response for: HELLO",
+      "context": "text_processing",
+      "timestamp": "2026-02-16T15:58:14.510910",
+      "count": 1
+    }
+  ],
+  "solutions_learned": [],
+  "last_updated": "2026-02-16T15:58:50.881536"
+}

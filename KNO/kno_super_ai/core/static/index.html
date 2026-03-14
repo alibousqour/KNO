@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>KNO Super AI - Dashboard</title>
+    <style>
+      body{font-family:system-ui,Arial;margin:20px}
+      table{border-collapse:collapse;width:100%}
+      th,td{border:1px solid #ccc;padding:8px}
+      button{padding:6px 10px}
+    </style>
+  </head>
+  <body>
+    <h1>KNO - Agents Dashboard</h1>
+    <div>
+      <label>API Key: <input id="apiKey" style="width:300px"/></label>
+      <button onclick="refresh()">Refresh</button>
+    </div>
+    <div id="agents"></div>
+
+    <script>
+      async function refresh(){
+        const res = await fetch('/agents');
+        const data = await res.json();
+        const container = document.getElementById('agents');
+        const keys = Object.keys(data.meta||{});
+        if(keys.length===0){container.innerHTML='<p>No agents connected</p>';return}
+        let html = '<table><tr><th>Agent ID</th><th>Last Seen</th><th>State</th><th>Actions</th></tr>';
+        for(const id of keys){
+          const m = data.meta[id];
+          html += `<tr><td>${id}</td><td>${new Date((m.last_seen||0)*1000).toLocaleString()}</td><td>${m.state||''}</td>`+
+            `<td><button onclick="ping('${id}')">Ping</button> <button onclick="exec('${id}')">Exec</button></td></tr>`;
+        }
+        html += '</table>';
+        container.innerHTML = html;
+      }
+
+      async function ping(id){
+        const apiKey = document.getElementById('apiKey').value;
+        const body = {id: 'ui-'+Date.now(), type:'dispatch', target:id, payload:{}, action:'stats'};
+        const res = await fetch('/dispatch', {method:'POST', headers:{'Content-Type':'application/json','X-API-KEY':apiKey}, body:JSON.stringify(body)});
+        alert(await res.text());
+      }
+
+      async function exec(id){
+        const cmd = prompt('Command to run on '+id);
+        if(!cmd) return;
+        const apiKey = document.getElementById('apiKey').value;
+        const body = {id: 'ui-'+Date.now(), type:'dispatch', target:id, payload:{cmd:cmd}, action:'exec'};
+        const res = await fetch('/dispatch', {method:'POST', headers:{'Content-Type':'application/json','X-API-KEY':apiKey}, body:JSON.stringify(body)});
+        alert(await res.text());
+      }
+
+      refresh();
+    </script>
+  </body>
+</html>

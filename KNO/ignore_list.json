@@ -1,0 +1,156 @@
+{
+  "ignore_list": {
+    "system_files": [
+      ".git",
+      ".github",
+      ".gitlab",
+      ".gitignore",
+      ".gitkeep",
+      ".env",
+      ".env.local",
+      ".env.*.local",
+      "__pycache__",
+      "*.pyc",
+      "*.pyo",
+      "*.pyd",
+      ".Python",
+      "*.so",
+      ".DS_Store",
+      "Thumbs.db",
+      "*.egg-info",
+      ".tox",
+      ".coverage",
+      ".pytest_cache",
+      ".mypy_cache",
+      "node_modules",
+      "package-lock.json",
+      "yarn.lock"
+    ],
+    "encrypted_keys": [
+      "*.key",
+      "*.pem",
+      "*.p12",
+      "*.pfx",
+      "*.jks",
+      "private_key",
+      "secret_key",
+      "api_key",
+      "access_token",
+      "refresh_token"
+    ],
+    "credentials": [
+      ".aws/credentials",
+      ".aws/config",
+      ".ssh",
+      "secrets.json",
+      "credentials.json",
+      "api_keys.json",
+      "config_secrets.yaml",
+      ".env.production",
+      ".env.staging"
+    ],
+    "build_artifacts": [
+      "build/",
+      "dist/",
+      ".gradle/",
+      "target/",
+      "bin/",
+      "obj/",
+      "*.o",
+      "*.obj",
+      ".venv/",
+      "venv/",
+      "env/",
+      "node_modules/"
+    ],
+    "cache_files": [
+      ".cache/",
+      "cache/",
+      ".pytest_cache/",
+      ".mypy_cache/",
+      ".vscode/",
+      ".idea/",
+      "*~",
+      "*.tmp",
+      "*.bak"
+    ],
+    "database_files": [
+      "*.db",
+      "*.sqlite",
+      "*.sqlite3",
+      "*.mdb",
+      "*.accdb"
+    ],
+    "backup_files": [
+      "backups/",
+      "*.backup",
+      "*.bak",
+      "*.old",
+      "*.tmp"
+    ]
+  },
+  "sensitivity_levels": {
+    "restricted": [
+      ".git",
+      ".env",
+      "*.key",
+      "*.pem",
+      "private_key",
+      "secrets.json",
+      "credentials.json",
+      "api_key",
+      "access_token"
+    ],
+    "sensitive": [
+      "config_secrets.yaml",
+      ".ssh",
+      ".aws/credentials",
+      "database_files",
+      "*.db"
+    ],
+    "internal": [
+      "build/",
+      "__pycache__",
+      ".cache/",
+      "node_modules/"
+    ]
+  },
+  "allowed_extensions": [
+    ".py",
+    ".js",
+    ".ts",
+    ".java",
+    ".cpp",
+    ".c",
+    ".h",
+    ".cs",
+    ".go",
+    ".rb",
+    ".php",
+    ".rs",
+    ".json",
+    ".yaml",
+    ".yml",
+    ".xml",
+    ".md",
+    ".txt",
+    ".html",
+    ".css",
+    ".scss",
+    ".sql",
+    ".sh",
+    ".bash",
+    ".ps1"
+  ],
+  "max_file_size_mb": 100,
+  "scan_limits": {
+    "max_files_per_directory": 10000,
+    "max_total_files": 100000,
+    "max_directory_depth": 10
+  },
+  "audit_settings": {
+    "log_blocked_files": true,
+    "log_sensitive_patterns": true,
+    "verbose_mode": false
+  }
+}
